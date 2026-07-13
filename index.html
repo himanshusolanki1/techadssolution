@@ -3,112 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Strategy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '3577884569057839');
-    fbq('track', 'PageView');
-
-    function trackTelegramClick() {
-        fbq('track', 'Lead', { content_name: 'Telegram Join' });
-        window.location.href = "https://t.me/+VzW3074VBGE2OGVl";
-    }
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=3577884569057839&ev=PageView&noscript=1"
-    /></noscript>
-    
+    <title>No 1 Telegram Channel</title>
     <style>
-        body, html { 
-            height: 100%; 
-            margin: 0; 
-            overflow: hidden; /* Prevents scrolling */
-            background-color: #0f172a;
-            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .main-container {
-            height: 100dvh;
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Strict no-scroll constraint */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d1117; /* Dark fallback background behind the image */
+            color: #ffffff;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        /* Background setup with 40% transparency */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.png'); /* YOUR BACKGROUND IMAGE */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.4; /* 40% opacity applied ONLY to the background */
+            z-index: 1;
+        }
+
+        /* Main container layer above background */
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 450px; /* Perfect for mobile viewports */
             padding: 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 85%; /* Distributed layout without crowding */
         }
-        .logo-img {
-            max-width: 120px;
-            height: auto;
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #8b949e;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .header .highlight-text {
+            font-size: 18px;
+            font-weight: 900;
+            color: #ff9f43; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .logo {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        .cta-area {
             margin-bottom: 20px;
         }
-        .tg-btn {
-            background-color: #229ED9;
-            animation: pulse 2s infinite;
+
+        .btn-tg {
+            display: inline-block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #2481cc, #2aabee);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(42, 171, 238, 0.4);
+            transition: transform 0.2s ease;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 158, 217, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(34, 158, 217, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 158, 217, 0); }
+
+        .btn-tg:active {
+            transform: scale(0.98);
+        }
+
+        .redirect-text {
+            font-size: 12px;
+            color: #8b949e;
+            margin-top: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        #countdown {
+            font-weight: bold;
+            color: #2aabee;
         }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <!-- Logo Section -->
-        <img src="logo.png" alt="BinaryPro Logo" class="logo-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2534/2534351.png'">
+    <div class="bg-overlay"></div>
 
-        <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-bold mb-4">
-            <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            LIVE SIGNALS ACTIVE
-        </div>
-
-        <h1 class="text-3xl font-extrabold text-white mb-2 leading-tight">
-            Win <span class="text-blue-400">9/10</span> Trades
-        </h1>
+    <div class="container">
         
-        <p class="text-slate-400 text-sm mb-8 max-w-[280px]">
-            Copy professional binary signals for Quotex & Pocket Option. 100% Free VIP access today.
-        </p>
-
-        <!-- Main Button -->
-        <button onclick="trackTelegramClick()" class="tg-btn w-full max-w-xs text-white text-lg font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-transform">
-            <i class="fab fa-telegram-plane text-2xl"></i>
-            JOIN TELEGRAM
-        </button>
-
-        <!-- Quick Stats -->
-        <div class="mt-8 grid grid-cols-3 gap-4 w-full max-w-xs">
-            <div class="text-center">
-                <div class="text-white font-bold">89%</div>
-                <div class="text-[10px] text-slate-500 uppercase">Accuracy</div>
-            </div>
-            <div class="text-center border-x border-slate-800">
-                <div class="text-white font-bold">Free</div>
-                <div class="text-[10px] text-slate-500 uppercase">Signals</div>
-            </div>
-            <div class="text-center">
-                <div class="text-white font-bold">Daily</div>
-                <div class="text-[10px] text-slate-500 uppercase">Profits</div>
-            </div>
+        <div class="header">
+            <h1>No 1 Telegram Channel</h1>
+            <p>Check yourself</p>
+            <div class="highlight-text">4 SESSION DAILY</div>
         </div>
 
-        <footer class="absolute bottom-6 text-[10px] text-slate-600 px-8">
-            Risk Warning: Trading involves risk of loss.
-        </footer>
+        <div class="logo-area">
+            <img src="wolf.png" alt="Wolf Trader Logo" class="logo">
+        </div>
+
+        <div class="cta-area">
+            <a href="https://t.me/+L-RkZVZIYcZhNzM1" class="btn-tg">Join Free Telegram</a>
+            <div class="redirect-text">Redirecting automatically in <span id="countdown">10</span>s...</div>
+        </div>
+
     </div>
+
+    <script>
+        const targetUrl = "https://t.me/+L-RkZVZIYcZhNzM1";
+        let timeLeft = 10;
+        const countdownEl = document.getElementById("countdown");
+
+        const downloadTimer = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(downloadTimer);
+                window.location.href = targetUrl;
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
