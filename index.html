@@ -22,6 +22,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>#1 Most Profitable Trading Community in India</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
         * {
             box-sizing: border-box;
@@ -29,211 +35,276 @@
             padding: 0;
         }
 
-        body, html {
-            min-height: 100%;
+        html, body {
+            height: 100%;
             width: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000000; /* Flat black background matching the images */
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #08090a;
             color: #ffffff;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            overflow-y: auto;
+            align-items: center;
+            overflow-x: hidden;
         }
 
-        .container {
+        /* Container designed to fit 100% height single page on mobile */
+        .page-wrapper {
             width: 100%;
-            max-width: 450px; /* Tailored layout optimization for mobile viewports */
-            padding: 30px 20px;
+            max-width: 430px;
+            min-height: 100vh;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             text-align: center;
+            background: radial-gradient(circle at top center, #151d2a 0%, #08090a 70%);
+        }
+
+        /* Header Section */
+        .header {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.3;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+        }
+
+        .highlight-wrapper {
+            position: relative;
+            display: inline-block;
+            color: #ffcc00;
+        }
+
+        /* Curved Line SVG Styling */
+        .curved-line {
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 14px;
+            overflow: visible;
+        }
+
+        /* Profile & Brand Section */
+        .profile-area {
+            margin: 15px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Top Heading Style */
-        .header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1.2;
-            color: #ffffff;
-            margin-bottom: 25px;
-            letter-spacing: -0.5px;
-        }
-
-        .header .highlight-text {
-            color: #ffcc00; /* Yellow highlight text */
-            text-decoration: underline;
-            text-underline-offset: 6px;
-        }
-
-        /* Profile & Brand Area */
-        .profile-area {
-            margin-bottom: 30px;
-            width: 100%;
+        .avatar-glow {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #2bc5d3 0%, #2aabee 100%);
+            box-shadow: 0 0 25px rgba(43, 197, 211, 0.35);
+            margin-bottom: 12px;
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
+            background-color: #111;
+            display: block;
         }
 
         .brand-name {
-            font-size: 22px;
-            font-weight: 800;
-            color: #2bc5d3; /* Cyan/Teal brand name */
-            letter-spacing: 0.5px;
+            font-size: 20px;
+            font-weight: 900;
+            color: #2bc5d3;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
-        /* Feature List Features */
-        .features-list {
-            text-align: left;
+        /* Features List Container */
+        .features-card {
             width: 100%;
-            max-width: 360px;
-            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 18px 16px;
+            margin-bottom: 20px;
+            text-align: left;
         }
 
         .feature-item {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 600;
-            line-height: 1.5;
-            margin-bottom: 18px;
-            color: #ffffff;
+            line-height: 1.4;
+            color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-item:not(:last-child) {
+            margin-bottom: 14px;
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            flex-shrink: 0;
         }
 
         .feature-subtext {
             display: block;
             font-weight: 400;
-            color: #ffffff;
-            padding-left: 28px;
+            font-size: 13px;
+            color: #a0a6b1;
         }
 
-        /* Call To Action Button Layout */
+        /* CTA Section & Zoom Animation */
         .cta-area {
             width: 100%;
-            max-width: 380px;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
 
-        .cta-pretext {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 12px;
+        /* Zoom In / Zoom Out Continuous Loop Animation */
+        @keyframes zoomLoop {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(42, 171, 238, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(42, 171, 238, 0.8);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(42, 171, 238, 0.4);
+            }
         }
 
         .btn-tg {
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 10px;
             width: 100%;
-            padding: 16px;
-            background-color: #2aabee; /* Flat vibrant blue matching the button style */
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #2aabee 0%, #0088cc 100%);
             color: #ffffff;
             text-decoration: none;
-            font-size: 20px;
-            font-weight: 700;
-            border-radius: 6px; /* Soft rectangular radius matching your image */
-            box-shadow: 0 4px 12px rgba(42, 171, 238, 0.2);
-            transition: background-color 0.2s ease;
-            margin-bottom: 12px;
-        }
-
-        .btn-tg:active {
-            background-color: #2296d1;
+            font-size: 17px;
+            font-weight: 800;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: zoomLoop 2s infinite ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .btn-tg svg {
-            margin-right: 10px;
             width: 24px;
             height: 24px;
             fill: #ffffff;
+            flex-shrink: 0;
         }
 
         .cta-posttext {
-            font-size: 16px;
+            font-size: 13px;
             font-weight: 600;
-            color: #ffffff;
-            opacity: 0.9;
+            color: #a0a6b1;
+            margin-top: 10px;
+            letter-spacing: 0.3px;
         }
 
-        /* Divider Line */
-        .divider {
-            width: 60px;
-            height: 2px;
-            background-color: #333333;
-            margin-bottom: 30px;
-        }
-
-        /* Legal/Meta Disclaimer Block */
-        .disclaimer-area {
-            font-size: 11px;
-            color: #8b949e;
-            text-align: justify;
-            line-height: 1.6;
-            width: 100%;
-            padding: 0 10px;
-        }
-
-        .disclaimer-area p {
-            margin-bottom: 12px;
+        /* Responsive Small Screen Tweaks */
+        @media (max-height: 670px) {
+            .page-wrapper {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .avatar-glow {
+                width: 110px;
+                height: 110px;
+            }
+            .features-card {
+                padding: 14px;
+                margin-bottom: 15px;
+            }
+            .feature-item {
+                font-size: 14px;
+            }
+            .btn-tg {
+                padding: 14px 16px;
+                font-size: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="page-wrapper">
         
-        <!-- Main Headline Heading -->
+        <!-- Main Headline Heading with Curved Vector Line -->
         <div class="header">
-            <h1>#1 Most Profitable <br><span class="highlight-text">Trading Community</span> <br>in India</h1>
+            <h1>
+                #1 Most Profitable <br>
+                <span class="highlight-wrapper">
+                    Trading Community
+                    <!-- Curved Line Vector -->
+                    <svg class="curved-line" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 3 14 Q 125 0 247 14" stroke="#FFCC00" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                </span><br>
+                in India
+            </h1>
         </div>
 
-        <!-- Avatar & Brand Name (Change 'wolf.png' to your circular avatar image file if needed) -->
+        <!-- Avatar & Brand Name -->
         <div class="profile-area">
-            <img src="wolf.png" alt="Trade With Pushkar Logo" class="profile-img">
+            <div class="avatar-glow">
+                <img src="wolf.png" alt="Wolf Trader Logo" class="profile-img">
+            </div>
             <div class="brand-name">WOLF TRADER</div>
         </div>
 
-        <!-- Features list with semantic spacing breaks -->
-        <div class="features-list">
-            <div class="feature-item">🔥 DAILY 10-12 Free Sureshot Signals</div>
+        <!-- Features Card -->
+        <div class="features-card">
             <div class="feature-item">
-                👨‍💻 FREE Access to Live Session
-                <span class="feature-subtext">Everyday</span>
+                <span class="feature-icon">🔥</span>
+                <div>DAILY 10-12 Free Sureshot Signals</div>
             </div>
             <div class="feature-item">
-                🧠 1-1 Mentorship/Psychological
-                <span class="feature-subtext">Sessions</span>
+                <span class="feature-icon">👨‍💻</span>
+                <div>
+                    FREE Access to Live Sessions
+                    <span class="feature-subtext">Every single day</span>
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🧠</span>
+                <div>
+                    1-on-1 Mentorship
+                    <span class="feature-subtext">Psychology & Risk Management</span>
+                </div>
             </div>
         </div>
 
-        <!-- Action Area -->
+        <!-- Animated Call To Action Button -->
         <div class="cta-area">
-            <div class="cta-pretext">💰 Start Earning Today</div>
-            
             <a href="https://t.me/+L-RkZVZIYcZhNzM1" class="btn-tg">
-                <!-- Inline SVG Paper Airplane Icon for Telegram -->
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.24-5.54 3.65-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.74 7.59-3.27 3.6-1.5 4.35-1.76 4.84-1.77.11 0 .35.03.51.16.13.1.17.24.19.34.02.06.02.21-.01.29z"/>
                 </svg>
-                Join Our Free Telegram Channel
+                Join Free Telegram Group
             </a>
-            
-            <div class="cta-posttext">100% Free – Telegram Group</div>
-        </div>
-
-        <!-- UI Separator Line -->
-        <div class="divider"></div>
-
-        <!-- Policy Disclaimer Panel -->
-        <div class="disclaimer-area">
-            <p><strong>Disclaimer:</strong> This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p>
-            <p>As stipulated by law, we can not and do not make any guarantees about your ability to get results or earn any money with my ideas, information, tools or strategies. I just want to help you by giving great content, direction and strategies that worked well for me and my students and that I believe can help you move forward. All of my terms, privacy policies and disclaimers for this program and website can be accessed via the links. I feel transparency is important and I hold ourselves (you & me) to a high standard of integrity. Thanks for stopping by. I hope this training and content brings you a lot of value & results.</p>
+            <div class="cta-posttext">🔒 100% Free Instant Access</div>
         </div>
 
     </div>
